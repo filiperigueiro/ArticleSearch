@@ -27,3 +27,5 @@ res = author_df(last_name = "Muschelli", first_name = "John", verbose = FALSE, g
 names(res)
 
 test <- scopus_search("abcam")
+test_2<- abstract_retrieval("85055909144", identifier = "scopus_id")
+generic_elsevier_api(quary = "abcam", type = 'Search', search_type = "scopus")
