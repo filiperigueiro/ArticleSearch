@@ -29,3 +29,21 @@ names(res)
 test <- scopus_search("abcam")
 test_2<- abstract_retrieval("85055909144", identifier = "scopus_id")
 generic_elsevier_api(quary = "abcam", type = 'Search', search_type = "scopus")
+
+
+#Core
+install.packages("rcoreoa")
+library(rcoreoa)
+test_core <- core_search(query = 'abcam', limit = 100, key = "3NIXFaCqEGJUYfwkhmyWPuR7i8geO6dp")
+
+
+apiKey <- '3NIXFaCqEGJUYfwkhmyWPuR7i8geO6dp'
+
+test_core_article <- core_articles(test_core$data$id[1], key = apiKey)
+
+library(jsonlite)
+
+a <- fromJSON("https://core.ac.uk:443/api-v2/search/abcam?page=1&pageSize=100&apiKey=3NIXFaCqEGJUYfwkhmyWPuR7i8geO6dp")
+a
+
+b <- fromJSON("https://core.ac.uk:443/api-v2/articles/get/159812443?metadata=true&fulltext=true&citations=true&similar=false&duplicate=false&urls=false&faithfulMetadata=false&apiKey=3NIXFaCqEGJUYfwkhmyWPuR7i8geO6dp")
